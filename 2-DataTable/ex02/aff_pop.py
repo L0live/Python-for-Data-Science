@@ -2,7 +2,16 @@ from matplotlib.ticker import FuncFormatter
 from load_csv import load
 import matplotlib.pyplot as plt
 
+
 def convert_population(value):
+    """Convert population value from string format (M/k suffix) to float.
+    
+    Args:
+        value: Population value (can be string with 'M' or 'k' suffix, or numeric).
+    
+    Returns:
+        float: Numerical population value.
+    """
     if isinstance(value, str):
         value = value.strip()
         if value.endswith('M'):
@@ -11,7 +20,9 @@ def convert_population(value):
             return float(value[:-1]) * 1_000
     return float(value)
 
+
 def main():
+    """Load population data and compare Belgium vs France demographics."""
     data = load("population_total.csv")
 
     data = data.loc[:, ['country'] + [col for col in data.columns if col.isdigit() and 1800 <= int(col) <= 2050]]
@@ -29,6 +40,7 @@ def main():
     plt.gca().yaxis.set_major_formatter(FuncFormatter(lambda x, pos: f'{int(x/1_000_000)}M'))
     plt.yticks(plt.yticks()[0][2:-2:2])
     plt.show()
+
 
 if __name__ == "__main__":
     main()

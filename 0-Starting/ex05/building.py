@@ -1,6 +1,12 @@
 import sys
 
+
 def main():
+    """Analyze and count different character types in a text string.
+    
+    Accepts text via command line argument or stdin input.
+    Counts upper/lower letters, punctuation marks, digits, and spaces.
+    """
     assert len(sys.argv) <= 2, "more than one argument is provided"
 
     if len(sys.argv) != 2 or not len(sys.argv[1]):
@@ -15,6 +21,7 @@ def main():
     print(sum(1 for c in string if c in punctuation), "punctuation marks")
     print(sum(1 for c in string if c.isdigit()), "digits")
     print(string.count(' '), "spaces")
+
 
 if __name__ == "__main__":
     main()
