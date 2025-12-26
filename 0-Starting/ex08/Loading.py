@@ -4,10 +4,10 @@ import datetime
 
 def s_to_hms_str_time(seconds):
     """Convert seconds to formatted time string (HH:MM:SS or MM:SS).
-    
+
     Args:
         seconds: Number of seconds to convert.
-    
+
     Returns:
         str: Formatted time string.
     """
@@ -20,12 +20,12 @@ def s_to_hms_str_time(seconds):
 
 def get_tqdm_data_by_time(start_time, i, range):
     """Calculate timing statistics for progress bar.
-    
+
     Args:
         start_time: Datetime when the iteration started.
         i: Current iteration index.
         range: Total number of iterations.
-    
+
     Returns:
         tuple: (elapsed_time, estimate_time, average_iteration) as strings.
     """
@@ -42,13 +42,13 @@ def get_tqdm_data_by_time(start_time, i, range):
 
 def get_tqdm_step_line(terminal_columns_size, lst_len, i, start_time):
     """Generate a formatted progress bar line.
-    
+
     Args:
         terminal_columns_size: Width of terminal in columns.
         lst_len: Total length of the iterable.
         i: Current iteration index.
         start_time: Datetime when the iteration started.
-    
+
     Returns:
         str: Formatted progress bar string.
     """
@@ -64,10 +64,10 @@ def get_tqdm_step_line(terminal_columns_size, lst_len, i, start_time):
 
 def ft_tqdm(lst: range) -> None:
     """Display a progress bar for iteration (tqdm-like behavior).
-    
+
     Args:
         lst: Range object to iterate over.
-    
+
     Yields:
         None: Prints progress bar to stdout for each iteration.
     """

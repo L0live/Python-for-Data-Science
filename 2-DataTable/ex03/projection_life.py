@@ -6,7 +6,7 @@ import seaborn as sns
 
 def main():
     """Analyze correlation between GDP and life expectancy in 1900.
-    
+
     Creates a scatter plot with logarithmic scale showing the relationship
     between gross national product per capita and life expectancy.
     """

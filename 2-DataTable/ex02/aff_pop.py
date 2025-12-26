@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 
 def convert_population(value):
     """Convert population value from string format (M/k suffix) to float.
-    
+
     Args:
         value: Population value (can be string with 'M' or 'k' suffix, or numeric).
-    
+
     Returns:
         float: Numerical population value.
     """

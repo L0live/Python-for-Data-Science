@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 
 def ft_zoom_and_rotate(image: list, zoom_scale: int) -> list:
     """Zoom into an image and rotate it 90 degrees.
-    
+
     Args:
         image: Image data as a nested list.
         zoom_scale: Factor determining the crop size.
-    
+
     Returns:
         list: Cropped and rotated grayscale image data.
     """

@@ -4,7 +4,7 @@ from ft_filter import ft_filter
 
 def main():
     """Filter words from a string based on minimum length.
-    
+
     Expects two arguments: a string and a minimum word length (integer).
     Prints list of words longer than the specified length.
     """

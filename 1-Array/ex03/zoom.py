@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 
 def ft_zoom(image: list, zoom_scale: int) -> list:
     """Zoom into the center of an image by cropping.
-    
+
     Args:
         image: Image data as a nested list.
         zoom_scale: Factor determining the crop size (higher = more zoom).
-    
+
     Returns:
         list: Cropped/zoomed grayscale image data.
     """

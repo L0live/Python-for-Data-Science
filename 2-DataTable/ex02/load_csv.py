@@ -3,10 +3,10 @@ import pandas as pd
 
 def load(path: str) -> pd.DataFrame:
     """Load a CSV file into a Pandas DataFrame.
-    
+
     Args:
         path: Path to the CSV file.
-    
+
     Returns:
         pd.DataFrame: Loaded data with shape information printed.
     """

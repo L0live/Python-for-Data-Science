@@ -3,7 +3,7 @@ import sys
 
 def main():
     """Analyze and count different character types in a text string.
-    
+
     Accepts text via command line argument or stdin input.
     Counts upper/lower letters, punctuation marks, digits, and spaces.
     """

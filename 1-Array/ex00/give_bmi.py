@@ -3,11 +3,11 @@ import numpy as np
 
 def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
     """Calculate BMI (Body Mass Index) for multiple individuals.
-    
+
     Args:
         height: List of heights in meters.
         weight: List of weights in kilograms.
-    
+
     Returns:
         list: BMI values calculated as weight / (height^2).
     """
@@ -22,11 +22,11 @@ def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int |
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
     """Check which BMI values exceed a given limit.
-    
+
     Args:
         bmi: List of BMI values.
         limit: Threshold value to compare against.
-    
+
     Returns:
         list: Boolean list indicating which values exceed the limit.
     """

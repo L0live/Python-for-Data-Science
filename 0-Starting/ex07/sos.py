@@ -3,7 +3,7 @@ import sys
 
 def main():
     """Convert text to Morse code.
-    
+
     Accepts a single string argument containing alphanumeric characters and spaces.
     Converts each character to Morse code and prints the result.
     """
