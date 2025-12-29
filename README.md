@@ -16,12 +16,17 @@ Analyse exploratoire avec Pandas et visualisation de données démographiques mo
 ### 3 - OOP
 Programmation orientée objet avancée : classes abstraites, héritage multiple, surcharge d'opérateurs et résolution du problème du diamant.
 
+### 4 - Dod (Data Oriented Design)
+Concepts avancés Python : fonctions d'ordre supérieur, closures, décorateurs paramétrés et dataclasses avec génération automatique d'identifiants.
+
 ## Stack
 Python • NumPy • Pandas • Matplotlib • Seaborn
 
 ## Compétences
 - Programmation Python avancée
 - Programmation orientée objet (OOP)
+- Décorateurs et closures
+- Fonctions d'ordre supérieur
 - Manipulation de données structurées
 - Visualisation scientifique
 - Analyse statistique
