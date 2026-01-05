@@ -17,7 +17,7 @@ Analyse exploratoire avec Pandas et visualisation de données démographiques mo
 Programmation orientée objet avancée : classes abstraites, héritage multiple, surcharge d'opérateurs et résolution du problème du diamant.
 
 ### 4 - Dod (Data Oriented Design)
-Concepts avancés Python : fonctions d'ordre supérieur, closures, décorateurs paramétrés et dataclasses avec génération automatique d'identifiants.
+Concepts avancés de Data Oriented Design : fonctions d'ordre supérieur, closures, décorateurs paramétrés et dataclasses.
 
 ## Stack
 Python • NumPy • Pandas • Matplotlib • Seaborn

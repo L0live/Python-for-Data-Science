@@ -1,6 +1,6 @@
 # Data Oriented Design (Dod) - École 42
 
-Concepts avancés de programmation Python : fonctions d'ordre supérieur, décorateurs, closures et dataclasses.
+Formation avancée en Python axée sur les concepts de Data Oriented Design : fonctions d'ordre supérieur, closures, décorateurs paramétrés et dataclasses.
 
 ## Exercices
 
