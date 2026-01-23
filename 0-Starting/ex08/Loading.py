@@ -1,5 +1,5 @@
-import os
-import datetime
+from os import get_terminal_size
+from datetime import datetime as dt
 
 
 def s_to_hms_str_time(seconds):
@@ -13,9 +13,9 @@ def s_to_hms_str_time(seconds):
     """
     hours, remainder = divmod(round(seconds), 3600)
     minutes, seconds = divmod(remainder, 60)
-    if hours > 0:
-        return '{:02}:{:02}:{:02}'.format(int(hours), int(minutes), int(seconds))
-    return '{:02}:{:02}'.format(int(minutes), int(seconds))
+    if hours == 0:
+        return '{:02}:{:02}'.format(int(minutes), int(seconds))
+    return '{:02}:{:02}:{:02}'.format(int(hours), int(minutes), int(seconds))
 
 
 def get_tqdm_data_by_time(start_time, i, range):
@@ -29,7 +29,7 @@ def get_tqdm_data_by_time(start_time, i, range):
     Returns:
         tuple: (elapsed_time, estimate_time, average_iteration) as strings.
     """
-    elapsed_seconds = (datetime.datetime.now() - start_time).total_seconds()
+    elapsed_seconds = (dt.now() - start_time).total_seconds()
     elapsed_time = s_to_hms_str_time(elapsed_seconds)
     if i == 0 or elapsed_seconds == 0:
         estimate_time = average_iteration = '?'
@@ -40,11 +40,11 @@ def get_tqdm_data_by_time(start_time, i, range):
     return elapsed_time, estimate_time, average_iteration
 
 
-def get_tqdm_step_line(terminal_columns_size, lst_len, i, start_time):
+def get_tqdm_step_line(terminal_size, lst_len, i, start_time):
     """Generate a formatted progress bar line.
 
     Args:
-        terminal_columns_size: Width of terminal in columns.
+        terminal_size: Width of terminal in columns.
         lst_len: Total length of the iterable.
         i: Current iteration index.
         start_time: Datetime when the iteration started.
@@ -52,14 +52,17 @@ def get_tqdm_step_line(terminal_columns_size, lst_len, i, start_time):
     Returns:
         str: Formatted progress bar string.
     """
-    progress_ratio = i / lst_len
-    progress_line_begin = f"{'{:3d}'.format(int(progress_ratio * 100))}%|"
-    elapsed_time, estimate_time, average_iteration = get_tqdm_data_by_time(start_time, i, lst_len)
-    progress_line_end = f"| {i}/{lst_len} [{elapsed_time}<{estimate_time}, {average_iteration}it/s]"
-    progress_bar_len = terminal_columns_size - len(progress_line_begin + progress_line_end)
-    progress_bar_filling_nb = round(progress_bar_len * progress_ratio) if progress_ratio != 0.5 else int(progress_bar_len * 0.5)
-    progress_bar = "█" * progress_bar_filling_nb + " " * round(progress_bar_len * (1 - progress_ratio))
-    return progress_line_begin + progress_bar + progress_line_end
+    progRatio = i / lst_len
+    progBeg = f"{'{:3d}'.format(int(progRatio * 100))}%|"
+    elapsT, estimT, averageIt = get_tqdm_data_by_time(start_time, i, lst_len)
+    progEnd = f"| {i}/{lst_len} [{elapsT}<{estimT}, {averageIt}it/s]"
+    progLen = terminal_size - len(progBeg + progEnd)
+    if progRatio != 0.5:
+        progFill = round(progLen * progRatio)
+    else:
+        progFill = int(progLen * 0.5)
+    progress_bar = "█" * progFill + " " * round(progLen * (1 - progRatio))
+    return progBeg + progress_bar + progEnd
 
 
 def ft_tqdm(lst: range) -> None:
@@ -71,9 +74,11 @@ def ft_tqdm(lst: range) -> None:
     Yields:
         None: Prints progress bar to stdout for each iteration.
     """
-    terminal_columns_size = os.get_terminal_size().columns
+    terminal_size = int(get_terminal_size().columns)
     lst_len = len(lst)
-    start_time = datetime.datetime.now()
+    start_time = dt.now()
     for i in lst:
-        yield print("\r" + get_tqdm_step_line(terminal_columns_size, lst_len, i, start_time), end="", flush=True)
-    print("\r" + get_tqdm_step_line(terminal_columns_size, lst_len, lst_len, start_time), end="", flush=True)
+        step_line = get_tqdm_step_line(terminal_size, lst_len, i, start_time)
+        yield print("\r" + step_line, end="", flush=True)
+    step_line = get_tqdm_step_line(terminal_size, lst_len, lst_len, start_time)
+    print("\r" + step_line, end="", flush=True)

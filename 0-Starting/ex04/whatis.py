@@ -1,11 +1,14 @@
-import sys
+from sys import argv
 
-assert len(sys.argv) <= 2, "more than one argument is provided"
+assert len(argv) <= 2, "more than one argument is provided"
 
-if len(sys.argv) == 2:
-    assert sys.argv[1].isdigit(), "argument is not an integer"
+if len(argv) == 2:
+    arg = argv[1]
+    if arg[0] == '-':
+        arg = arg[1:]
+    assert arg.isdigit(), "argument is not an integer"
 
-    if int(sys.argv[1]) % 2:
+    if int(argv[1]) % 2:
         print("I'm Odd.")
     else:
         print("I'm Even.")

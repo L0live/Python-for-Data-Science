@@ -1,12 +1,10 @@
 
 def ft_filter(func, list):
-    """Filter a list using a predicate function.
+    """filter(function or None, iterable) --> filter object
 
-    Args:
-        func: Function that returns True/False for each element.
-        list: List to filter.
+Return an iterator yielding those items of iterable for which function(item)
+is true. If function is None, return the items that are true."""
 
-    Returns:
-        list: Filtered list containing only elements where func(x) is True.
-    """
+    if func is None:
+        return [x for x in list if x]
     return [x for x in list if func(x)]

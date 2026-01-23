@@ -1,9 +1,11 @@
-import datetime
+from datetime import datetime as dt
 
-currentTime = datetime.datetime.now()
+currentTime = dt.now()
 inSeconds = "{:,}".format(currentTime.timestamp())
 inSciNotation = "{:.2e}".format(currentTime.timestamp())
 simpleDate = currentTime.strftime("%b %d %Y")
 
-print("Seconds since January 1, 1970:", inSeconds, "or", inSciNotation, "in scientific notation")
+lineBegin = "Seconds since January 1, 1970:"
+lineEnd = "in scientific notation"
+print(lineBegin, inSeconds, "or", inSciNotation, lineEnd)
 print(simpleDate)
