@@ -20,17 +20,21 @@ def ft_zoom(image: list, zoom_scale: int) -> list:
     w = image_array.shape[1]
 
     sliced_array = image_array[h//zoom_scale: -h//zoom_scale, w//zoom_scale: -w//zoom_scale, 0]
+    sliced_array = image_array[100: 500, 450: 850, 0:1]
 
-    return sliced_array[()].tolist()
+    return sliced_array
 
 
 def main():
     """Load an image, zoom into it, and display the result."""
+    # np.set_printoptions(threshold = False)
     image = ft_load("animal.jpeg")
+    # print(image)
 
     zoomed_image = ft_zoom(image, 4)
-
-    plt.imshow(np.array(zoomed_image), cmap='gray')
+    print(f"New shape after slicing: {zoomed_image.shape} or {zoomed_image[:, :, 0].shape}")
+    # print(zoomed_image)
+    plt.imshow(zoomed_image, cmap='gray')
     plt.show()
 
 
