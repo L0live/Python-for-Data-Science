@@ -3,12 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def ft_zoom(image: list, zoom_scale: int) -> list:
+def ft_zoom(image: list) -> list:
     """Zoom into the center of an image by cropping.
 
     Args:
         image: Image data as a nested list.
-        zoom_scale: Factor determining the crop size (higher = more zoom).
 
     Returns:
         list: Cropped/zoomed grayscale image data.
@@ -16,11 +15,8 @@ def ft_zoom(image: list, zoom_scale: int) -> list:
     assert len(image) > 0, "Input image must have a positive length."
 
     image_array = np.array(image)
-    h = image_array.shape[0]
-    w = image_array.shape[1]
 
-    sliced_array = image_array[h//zoom_scale: -h//zoom_scale, w//zoom_scale: -w//zoom_scale, 0]
-    sliced_array = image_array[100: 500, 450: 850, 0:1]
+    sliced_array = image_array[100: 500, 450: 850, :1]
 
     return sliced_array
 
@@ -31,7 +27,7 @@ def main():
     image = ft_load("animal.jpeg")
     # print(image)
 
-    zoomed_image = ft_zoom(image, 4)
+    zoomed_image = ft_zoom(image)
     print(f"New shape after slicing: {zoomed_image.shape} or {zoomed_image[:, :, 0].shape}")
     # print(zoomed_image)
     plt.imshow(zoomed_image, cmap='gray')
