@@ -3,18 +3,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def ft_zoom_and_rotate(image: list) -> list:
+def ft_zoom_and_rotate(image_array: np.array) -> np.array:
     """Zoom into an image and rotate it 90 degrees.
 
     Args:
-        image: Image data as a nested list.
+        image_array: Image data as np.array.
 
     Returns:
-        list: Cropped and rotated grayscale image data.
+        np.array: Cropped and rotated grayscale image data.
     """
-    assert len(image) > 0, "Input image must have a positive length."
-
-    image_array = np.array(image)
+    assert len(image_array) > 0, "Input image must have a positive length."
 
     sliced_array = image_array[100: 500, 450: 850, :1]
 
@@ -26,14 +24,14 @@ def ft_zoom_and_rotate(image: list) -> list:
 
     print(f"New shape after Transpose: {rotate_array.shape}")
 
-    return rotate_array[()].tolist()
+    return rotate_array
 
 
 def main():
     """Load an image, zoom, rotate it, and display the result."""
-    image = ft_load("animal.jpeg")
+    image_array = ft_load("animal.jpeg")
 
-    rotated_image = ft_zoom_and_rotate(image)
+    rotated_image = ft_zoom_and_rotate(image_array)
 
     plt.imshow(np.array(rotated_image), cmap='gray')
     plt.show()

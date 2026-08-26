@@ -16,4 +16,4 @@ def ft_load(path: str) -> list:
 
     print("The shape of image is:", image_array.shape)
 
-    return image_array.tolist()
+    return image_array

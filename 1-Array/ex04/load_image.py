@@ -2,7 +2,7 @@ from PIL import Image
 import numpy as np
 
 
-def ft_load(path: str) -> list:
+def ft_load(path: str) -> np.array:
     """Load an image from file and convert to array.
 
     Args:
@@ -16,4 +16,4 @@ def ft_load(path: str) -> list:
 
     print("The shape of image is:", image_array.shape)
 
-    return image_array.tolist()
+    return image_array
